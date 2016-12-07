@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.0/eeed20590bf2a6e367e6e5ce33f44d353881fa23/jackson-core-2.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="eeed20590bf2a6e367e6e5ce33f44d353881fa23">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.8.0_c053b72f7506121c0463fb9353585580746a0077/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/FlickerImage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_f46c4c66b4ece6c737e39584cfb49aadf4cf0854/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/FlickerImage/app/build/intermediates/exploded-aar/com.commit451/PhotoView/1.2.5/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="526e8a982e8d1453c548b8d3a63968ee61667a15">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.commit451-PhotoView-1.2.5_d2cefede37057007d3101447f371b8536698dad8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/FlickerImage/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_1bc0c94a6cdfd95189f5ada7e45bfc3e40cd50d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.0/95505afd940fedb0d674a83583ae65a9c25ec9f/jackson-databind-2.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="095505afd940fedb0d674a83583ae65a9c25ec9f">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.8.0_aea6fd580eb739088f38cba8e2d88b312ef5b9bc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/FlickerImage/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_5070c3e4b45d2b105722ecdddee16380b4930a7d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/FlickerImage/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="748454b0520d1a1b2514f7dfc866b686350733e4">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_300ecf753c8340370395ee88ab12ab14392a031e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/FlickerImage/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ca9b275c7c6a73663dd55e59e22f6d7c09ca5bcb">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_76908d8493f808eaa9ea402d46279a372f4cba28/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/FlickerImage/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_a5c2901f425816ee0f909b7e8a21637330367875/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_ecb9b3cbc1815f11639d9158003114b89e66cf88/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/FlickerImage/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_624ed4d15d03b06f0eaf10b706e22fe2a64bfe7b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.5/442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375/universal-image-loader-1.9.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/universal-image-loader-1.9.5_560e575c87da2590d12534481fb0babb1b233432/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Nitin/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="45b426f7796b741035581a176744d91090e2e6fb">
+        <dex dex="/Users/Nitin/FlickerImage/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.8.0_6bb5edb3a2c889142b7a54a245791f38122d283e/classes.dex" />
+    </item>
+
+</items>

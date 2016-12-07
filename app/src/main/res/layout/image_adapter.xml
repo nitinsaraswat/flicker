@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <image.flicker.flickerimage.util.SquareImageView
+        android:id="@+id/picture"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        />
+    <!--<TextView
+        android:id="@+id/retry"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="15dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:drawablePadding="5dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:text="Retry"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_textview"
+        android:singleLine="true"
+        android:gravity="bottom"
+        android:textSize="17sp"
+        android:drawableLeft="@drawable/upload"
+        android:visibility="gone"/>-->
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="8dp"
+        android:layout_gravity="bottom|center"
+        android:text="hello"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:gravity="bottom"
+        />
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@android:style/Widget.ProgressBar.Inverse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        android:layout_gravity="center_horizontal|center_vertical"
+        />
+
+</FrameLayout>
+

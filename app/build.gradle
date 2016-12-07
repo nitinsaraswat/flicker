@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    defaultConfig {
+        applicationId "image.flicker.flickerimage"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile(
+            [group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.0'],
+            [group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.8.0'],
+            [group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.0']
+    )
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.commit451:PhotoView:1.2.5'
+
+    testCompile 'junit:junit:4.12'
+}
+
+android {
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+    // ...
+}
