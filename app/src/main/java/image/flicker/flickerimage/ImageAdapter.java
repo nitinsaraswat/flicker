@@ -17,6 +17,7 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.utils.MemoryCacheUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import image.flicker.flickerimage.model.Items;
@@ -76,9 +77,9 @@ public class ImageAdapter extends BaseAdapter {
                 ImageLoader.getInstance().getMemoryCache());
         holder.pBar.setVisibility(View.VISIBLE);
         if (bitmaps.size() != 0) {
-            loadImage(holder.imgView.getTag().toString(), holder.imgView, false, holder.pBar);
+            loadImage(holder.imgView.getTag().toString(), holder.imgView, false, holder.pBar,position);
         }else{
-            loadImage(holder.imgView.getTag().toString(), holder.imgView, true, holder.pBar);
+            loadImage(holder.imgView.getTag().toString(), holder.imgView, true, holder.pBar,position);
         }
         return v;
     }
@@ -99,7 +100,7 @@ public class ImageAdapter extends BaseAdapter {
 
 
 
-    public void loadImage(final String imageUri, final ImageView associateImgVw, Boolean loadAsync, final ProgressBar progressBar) {
+    public void loadImage(final String imageUri, final ImageView associateImgVw, Boolean loadAsync, final ProgressBar progressBar,final int position) {
         if (!loadAsync) {
             if(imageUri.equalsIgnoreCase(associateImgVw.getTag().toString())) {
                 Bitmap loadedImage = ImageLoader.getInstance().loadImageSync(imageUri);
@@ -109,9 +110,12 @@ public class ImageAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View view) {
                         if (imageUri.equalsIgnoreCase(associateImgVw.getTag().toString())) {
-                            Intent myIntent = new Intent(mContext, PhotoViewActivity.class);
-                            myIntent.putExtra("imageUri", imageUri);
+                            Intent myIntent = new Intent(mContext, PhotoPagerActivity.class);
+                            ArrayList<Items> itemArrlist = (ArrayList<Items>) listOfMedia;
+                            myIntent.putExtra("list",itemArrlist);
+                            myIntent.putExtra("position",position);
                             mContext.startActivity(myIntent);
+
                         }
                     }
                 });
@@ -140,8 +144,11 @@ public class ImageAdapter extends BaseAdapter {
                             @Override
                             public void onClick(View view) {
                                 if (imageUri.equalsIgnoreCase(associateImgVw.getTag().toString())) {
-                                    Intent myIntent = new Intent(mContext, PhotoViewActivity.class);
-                                    myIntent.putExtra("imageUri", imageUri); //Optional parameters
+                                    Intent myIntent = new Intent(mContext, PhotoPagerActivity.class);
+                                    //myIntent.putExtra("imageUri", imageUri); //Optional parameters
+                                    ArrayList<Items> itemArrlist = (ArrayList<Items>) listOfMedia;
+                                    myIntent.putExtra("list",itemArrlist);
+                                    myIntent.putExtra("position",position);
                                     mContext.startActivity(myIntent);
                                 }
                             }
