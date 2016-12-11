@@ -42,7 +42,7 @@
             android:layout_gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:src="@drawable/ic_close_white_24dp" />
+            android:src="@android:drawable/ic_menu_search" />
     </LinearLayout>
 </android.support.v7.widget.Toolbar>
 

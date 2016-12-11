@@ -1,8 +1,11 @@
 package image.flicker.flickerimage;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,7 +75,11 @@ public class ImageAdapter extends BaseAdapter {
         holder.userName = (TextView) v.findViewById(R.id.textName);
         holder.pBar = (ProgressBar) v.findViewById(R.id.progress);
         holder.imgView.setTag(listOfMedia.get(position).getMedia().getM());
-        holder.userName.setText(listOfMedia.get(position).getTitle());
+
+        if(listOfMedia.get(position).getTags()!=null && !listOfMedia.get(position).getTags().equals(""))
+            holder.userName.setText(listOfMedia.get(position).getTags());
+        else
+            holder.userName.setText(listOfMedia.get(position).getTitle());
         List<Bitmap> bitmaps = MemoryCacheUtils.findCachedBitmapsForImageUri(holder.imgView.getTag().toString(),
                 ImageLoader.getInstance().getMemoryCache());
         holder.pBar.setVisibility(View.VISIBLE);
@@ -81,6 +88,44 @@ public class ImageAdapter extends BaseAdapter {
         }else{
             loadImage(holder.imgView.getTag().toString(), holder.imgView, true, holder.pBar,position);
         }
+        holder.imgView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(
+                        mContext);
+                alert.setTitle("Alert!!");
+                alert.setMessage("Are you sure to delete image ?");
+                alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //do your work here
+
+                        Log.d("Postion ",position+"");
+                        listOfMedia.remove(position);
+                        //MainActivity.listOfItemsStatic.remove(position);
+                        notifyDataSetChanged();
+                        dialog.dismiss();
+
+
+                    }
+                });
+                alert.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+
+                alert.show();
+
+
+                return true;
+            }
+        });
         return v;
     }
 

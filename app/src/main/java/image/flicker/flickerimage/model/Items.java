@@ -23,6 +23,16 @@ public class Items implements Serializable {
 
     private String title;
 
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    private String tags;
+
     public Media getMedia() {
         return media;
     }

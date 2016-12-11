@@ -5,8 +5,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -26,14 +31,35 @@ public class MainActivity extends AppCompatActivity {
 
     public Context context;
     public GridView gridView;
+    public static List<Items> listOfItemsStatic;
+    Toolbar toolbar;
+    EditText edSearchText;
+    ImageView search;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         gridView = (GridView)findViewById(R.id.gridView);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        edSearchText = (EditText) toolbar.findViewById(R.id.search_view);
+        search = (ImageView)toolbar.findViewById(R.id.search_clear);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(edSearchText.getText()!=null && !edSearchText.getText().toString().equals(""))
+                    searchByTag();
+                else
+                    Toast.makeText(MainActivity.this,"Please type something to search",Toast.LENGTH_LONG);
+            }
+        });
         context = this;
         if(NetworkManager.nManager.checkAndShowNetworkAlert(this)) // check network status and show toast
-            new LoadImagesFromFlickrTask().execute();
+            new LoadImagesFromFlickrTask().execute("");
+    }
+
+    private void searchByTag(){
+        new LoadImagesFromFlickrTask().execute(edSearchText.getText().toString());
     }
 
 
@@ -59,9 +85,16 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected List doInBackground(String... params) {
 
+            String tag = params[0];
+
             List<Items> result = new ArrayList();
             try {
-                URL url = new URL(Constants.FLICKR_PUBLIC_URL);
+                String urlConstatnt=Constants.FLICKR_PUBLIC_URL;
+
+                if(tag!=null && !tag.equals("")){
+                    urlConstatnt = Constants.FLICKR_PUBLIC_URL_TAG_SEARCH+tag;
+                }
+                URL url = new URL(urlConstatnt);
                 URLConnection connection = url.openConnection();
                 String line;
                 StringBuilder builder = new StringBuilder();
@@ -77,10 +110,6 @@ public class MainActivity extends AppCompatActivity {
                     jsonString =jsonString.replace("(","");
                     jsonString =jsonString.replace(")","");
                 }
-
-
-                
-
                 ObjectMapper obj = new ObjectMapper();
                 JsonFlickrFeed jsonFlickrFeed = obj.readValue(jsonString,JsonFlickrFeed.class);
                 result = jsonFlickrFeed.getItems();
@@ -89,8 +118,6 @@ public class MainActivity extends AppCompatActivity {
             }catch(Exception ex){
                 Log.d("URL",ex.getMessage());
             }
-
-
             return result;
         }
 
@@ -98,10 +125,20 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(List s) {
             progressDialog.dismiss();
             List<Items> listOfItems = (ArrayList<Items>)s;
-            ImageAdapter imgAdapter = new ImageAdapter(context,listOfItems);
+            listOfItemsStatic = (ArrayList<Items>)s;
+            ImageAdapter imgAdapter = new ImageAdapter(context,listOfItemsStatic);
             gridView.setAdapter(imgAdapter);
-
             super.onPostExecute(s);
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(listOfItemsStatic!=null && listOfItemsStatic.size()>0){
+            ImageAdapter imgAdapter = new ImageAdapter(context,listOfItemsStatic);
+            gridView.setAdapter(imgAdapter);
+        }
+    }
+
 }

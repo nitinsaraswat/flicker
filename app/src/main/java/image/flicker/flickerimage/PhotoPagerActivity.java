@@ -1,6 +1,7 @@
 package image.flicker.flickerimage;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class PhotoPagerActivity extends AppCompatActivity {
     ArrayList<Items> listOfItems;
     TextView titleView;
     ImageButton deleteBtn;
+    Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +39,13 @@ public class PhotoPagerActivity extends AppCompatActivity {
         //toolbar.setBackgroundColor(Color.BLACK);
         titleView = (TextView)toolbar.findViewById(R.id.titleView);
         deleteBtn = (ImageButton)toolbar.findViewById(R.id.deleteBtn);
-
+        mContext=this;
 
         Intent i = getIntent();
         listOfItems = (ArrayList<Items>) i.getSerializableExtra("list");
         int postion1 = i.getIntExtra("position",0);
 
-        mCustomPagerAdapter = new CustomPagerAdapter(this,listOfItems);
+        mCustomPagerAdapter = new CustomPagerAdapter(this,MainActivity.listOfItemsStatic);
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mCustomPagerAdapter);
@@ -56,7 +58,12 @@ public class PhotoPagerActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                String title = listOfItems.get(position).getTitle();
+                String title = "";
+                if(listOfItems.get(position).getTags()!=null && !listOfItems.get(position).getTags().equals(""))
+                    title = listOfItems.get(position).getTags();
+                else
+                    title = listOfItems.get(position).getTitle();
+
                 titleView.setText(title);
             }
 
@@ -78,22 +85,24 @@ public class PhotoPagerActivity extends AppCompatActivity {
 
 
         mViewPager.setCurrentItem(postion1);
-
-        //getSupportActionBar().setTitle("Hello");
-        //getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_CUSTOM, ActionBar.DISPLAY_SHOW_CUSTOM);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void deleteThisMedia(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.delete_msg)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setTitle("Alert!!");
+        builder.setMessage("Are you sure to delete image ?");
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     public void onClick(final DialogInterface dialog, int id) {
+                        int i = mViewPager.getCurrentItem();
+                        MainActivity.listOfItemsStatic.remove(i);
+                        mCustomPagerAdapter = new CustomPagerAdapter(mContext,MainActivity.listOfItemsStatic);
+                        mViewPager.setAdapter(mCustomPagerAdapter);
+                        mViewPager.setCurrentItem(i);
 
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.dismiss();
                     }
